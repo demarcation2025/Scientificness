@@ -1,4 +1,4 @@
-Here is a html page I wish to modify: <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Scientific Slider</title>
@@ -17,6 +17,12 @@ Here is a html page I wish to modify: <!DOCTYPE html>
         }
         .slider-container {
             margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .slider {
+            flex-grow: 1;
         }
         .button-container {
             text-align: center;
@@ -38,34 +44,24 @@ Here is a html page I wish to modify: <!DOCTYPE html>
     <div class="image-container">
         <img src="https://placekitten.com/300/300" alt="Image 1">
         <div class="slider-container">
+            <span>0</span>
             <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider">
             <span class="slider-value">0.5</span>
+            <span>1</span>
         </div>
     </div>
 
     <div class="image-container">
         <img src="https://placekitten.com/301/301" alt="Image 2">
         <div class="slider-container">
+            <span>0</span>
             <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider">
             <span class="slider-value">0.5</span>
+            <span>1</span>
         </div>
     </div>
 
-    <div class="image-container">
-        <img src="https://placekitten.com/302/302" alt="Image 3">
-        <div class="slider-container">
-            <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider">
-            <span class="slider-value">0.5</span>
-        </div>
-    </div>
-
-    <div class="image-container">
-        <img src="https://placekitten.com/303/303" alt="Image 4">
-        <div class="slider-container">
-            <input type="range" min="0" max="1" step="0.01" value="0.5" class="slider">
-            <span class="slider-value">0.5</span>
-        </div>
-    </div>
+    <!-- Add more image containers here -->
 
     <div class="button-container">
         <a href="InitialQuestions.html" class="continue-button">Continue</a>
@@ -78,6 +74,11 @@ Here is a html page I wish to modify: <!DOCTYPE html>
         sliders.forEach((slider, index) => {
             slider.addEventListener("input", function() {
                 valueSpans[index].textContent = slider.value;
+
+                // For demonstration purposes, we'll log the slider data to the console.
+                const identifier = `slider${index + 1}`;
+                const actualValue = slider.value;
+                console.log(`${identifier}: ${actualValue}`);
             });
         });
     </script>
